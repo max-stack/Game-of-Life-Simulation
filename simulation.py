@@ -1,4 +1,5 @@
 import argparse
+from initial_state import initialise_state
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -32,12 +33,8 @@ def main():
     updateInterval = 50
 
     grid = np.zeros((N, N))
-    grid.fill(0)
-    grid[10][0:100] = ON
-    grid[11][10:70] = ON
-    grid[12][20-50] = ON
-    grid[13][40-45] = ON
-    grid[13][41-58] = ON
+
+    initialise_state(grid, ON)
 
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation='nearest')
